@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Tours</h2>
+        <table>
+            @foreach (var b in ViewBag.ListTours)
+            {
+                <tr>
+                    <td>@b.Name</td>
+                    <td><b>@Html.ActionLink(".   Details", "TourDetails", new { id = b.Id })</b></td>
+                    <td><b>@Html.ActionLink(".   Edit", "EditTour", new { id = b.Id })</b></td>
+                    <td><b>@Html.ActionLink(".   Delete", "DeleteTour", new { id = b.Id })</b></td>
+                </tr>
+            }
+        </table>
+        <p><h5>@Html.ActionLink("Create New Tour", "CreateTour", "Home")</h5></p>
+        <p><h5>to see the necessary tours, filter them by category</h5></p>
+        <p><h5>@Html.ActionLink("Filter by Category", "Filter", "Home")</h5></p>
+    </div>
+    <div class="col-md-4">
+        <h2></h2>
+        <p>
+        </p>
+        <p></p>
+    </div>
+    <div class="col-md-4">
+        <h2> Categories </h2>
+        <table>
+            @foreach (var b in ViewBag.ListCategories)
+            {
+                <tr>
+                    <td><h4>@b.Name</h4></td>
+                    <td>@Html.ActionLink("Edit", "EditCategory", new { id = b.Id })</td>
+                    <td>/</td>
+                    <td>@Html.ActionLink("Delete", "DeletCAtegory", new { id = b.Id })</td>
+                </tr>
+            }
+        </table>
+        <p><h5>@Html.ActionLink("Add New Category", "CreateCategory", "Home")</h5></p>
+
+    </div>
+</div>

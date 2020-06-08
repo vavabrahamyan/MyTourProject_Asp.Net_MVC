@@ -1,0 +1,35 @@
+﻿@model Tour_WebApp.Models.Tour
+
+@{
+    ViewBag.Title = "TourDetails";
+}
+
+<h2>Tour Details</h2>
+
+<div class="display-label"><b>Name</b></div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Name)
+</div>
+
+<div class="display-label"><b>Starts At</b></div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.StartAt)
+</div>
+
+<div class="display-label"><b>End At</b></div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.EndAt)
+</div>
+
+<div class="display-label"><b>Categories</b></div>
+<ul>
+    @foreach (var item in Model.Categories)
+    {
+        <li>@item.Name</li>
+    }
+</ul>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
